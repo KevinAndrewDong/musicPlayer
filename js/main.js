@@ -22,13 +22,17 @@ var app = new Vue({
         },
         playMusic:function(musicId){
             //console.log(musicId);
+            //https://autumnfish.cn/song/url?id=
             var that = this;
-            axios.get("https://autumnfish.cn/song/url?id=" + musicId).then(
+            /**
+            axios.get("http://musicapi.leanapp.cn/search/suggest？keywords=" + musicId).then(
                 function(response){
                 //console.log(response.data.data[0].url);
                 that.musicUrl = response.data.data[0].url;
             },function(err){ }
-            )
+            )*/
+
+            that.musicUrl = "http://music.163.com/song/media/outer/url?id=" + musicId + ".mp3";
 
             axios.get("https://autumnfish.cn/song/detail?ids=" + musicId).then(
                 function(response){
